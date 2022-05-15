@@ -1,8 +1,4 @@
-from math import log2
-from typing import List
-
-
-def insection_sort(A: List[int], n: int, g: int) -> int:
+def insection_sort(A, n: int, g: int) -> int:
     cnt = 0
     for i in range(g, n):
         v = A[i]
@@ -16,32 +12,42 @@ def insection_sort(A: List[int], n: int, g: int) -> int:
     return cnt
 
 
-def shell_sort(A: List[int], n: int) -> int:
+def shell_sort(A, n: int) -> int:
     cnt = 0
-    m = int(log2(n))
-    print(m)  # l.1
 
     #  数列Gを生成
     #  ver1: log2(n) - 1 -> 1
-    # G = [2 ** i - 1 for i in range(m)]
+    # m = int(log2(n))
+    # G = [2 ** i - 1 for i in range(m)][::-1]
+
     #  ver2
     h = 1
     G = []
     while h <= n:
         G.append(h)
         h = 3 * h + 1
+    m = len(G)
+    G = G[::-1]  # reverse
+
+    print(m)  # l.1
     print(*G)  # l.2
 
     #  ソート
-    for i in reversed(range(m)):
-        cnt += insection_sort(A, n, G[i])
+    for g in G:
+        cnt += insection_sort(A, n, g)
 
     return cnt
 
 
+def get_input():
+    n = int(input())
+    A = [int(input()) for _ in range(n)]
+    return n, A
+
+
 def main():
-    n = 5
-    A = [5, 1, 4, 3, 2]
+    # n, A = 5, [5, 1, 4, 3, 2]
+    n, A = get_input()
     cnt = shell_sort(A, n)
     print(cnt)  # l.3
     print(*A, sep="\n")  # l.4 ~
