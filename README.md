@@ -26,6 +26,6 @@
 | 18 章 整数論                   | 2022/      |
 | 19 章 ヒューリスティク探索     | 2022/      |
 
-# 参考
+# References
 
-[Python 版 螺旋本(『プログラミングコンテスト攻略のためのアルゴリズムとデータ構造』) 解答例](https://qiita.com/somolyot/items/2ca63b7cc379eeb6db3e)
+-   [Python 版 螺旋本(『プログラミングコンテスト攻略のためのアルゴリズムとデータ構造』) 解答例](https://qiita.com/somolyot/items/2ca63b7cc379eeb6db3e)
